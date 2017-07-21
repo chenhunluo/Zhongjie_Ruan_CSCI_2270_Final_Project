@@ -1,2 +1,2 @@
 # Zhongjie_Ruan_CSCI_2270_Final_Project
-Travel map to give user their best destination based on their preference and show them the shortest route.
+The project I am doing is creating a map contains different states. I am going to design a application help user to find the best travel destination based on their landscape perferance, and help user to calculate the shortest path based on distance and based on least states they will pass. Each state in side graph is containing a link list that stores the landscape information, temperature information, population information, and local food information. 
