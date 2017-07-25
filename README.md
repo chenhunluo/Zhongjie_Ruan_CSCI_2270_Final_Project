@@ -8,3 +8,6 @@ I will first give the user some options of landscapes and ask them which type of
 
 Update:
 Instead of implementing queue I used deque library to access queue directly. I also have functions to create trees contain attraction information and connect each tree with the vertex. Basically, there are two data structures are connected with the vertex, link list, and BST.
+
+Update:
+Create Hashtable class and use it as a template to store vertices
