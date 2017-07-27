@@ -5,13 +5,14 @@
 #include<sstream>
 #include<deque>
 using namespace std;
-
-Travel_map::Travel_map(string filename)
+//Also declear the size of the hash table
+Travel_map::Travel_map(string filename) :vertices(1000)
 {
     //Initialize root
     root=nullptr;
     //Load file, create link list, create BST, create edge.
     loadfile(filename);
+    
 }
 
 Travel_map::~Travel_map()
@@ -27,8 +28,8 @@ void Travel_map::loadfile(string filename)
     if(!Datafile)
         cout<<"Open file failed"<<endl;
     string nothing,city,land,temp,pop,food,wholeline,attraction;
-    int current;
-    int first;
+    string current;
+    string first;
     for(int i=0;i<=16;i++)
     {
         getline(Datafile,wholeline);
@@ -40,33 +41,31 @@ void Travel_map::loadfile(string filename)
         getline(ss,pop,',');//Population
         getline(ss,food,',');//Famout local food
         insertvertex_and_create_link_list(city,land,temp,pop,food);
-        counter=i; //used for connect each tree with each vertex
         //After food, there are four attractions separated by ','.
         while(getline(ss,attraction,','))
         {
             inserttree(attraction);
         }
         //Connect vertex with each tree
-        vertices[counter].tree=root;
+        vertices.get(city).tree=root;
         //reset root for creating a new tree
         root=nullptr;
+        loopthrough.push_back(city);
     }
+    //Insert edges and weight
     while(getline(Datafile,wholeline))
     {
-        //This whileloop is mainly used for building edges and add weight.
-        //Please see instruction about txt file, I use different number from 0-16 to represent each state which also represent
-        //the index for vector and use them to add edges and weights
         istringstream ss (wholeline);
         getline(ss,temp,',');
-        first=stoi(temp);
+        first=temp;
         while(getline(ss,temp,','))
         {
-            current=stoi(temp);
+            current=temp;
             getline(ss,temp,',');
             adjvertex hi;
             hi.weight=stoi(temp);
-            hi.v=&vertices[current];
-            vertices[first].adjacent.push_back(hi);
+            hi.v=&vertices.get(current);
+            vertices.get(first).adjacent.push_back(hi);
         }
         
     }
@@ -74,47 +73,34 @@ void Travel_map::loadfile(string filename)
 
 void Travel_map::insertvertex_and_create_link_list(string cityname,string land, string temp, string pop, string food)
 {
-    //Check to see if the state aready exist
-    bool found=false;
-    for(int i=0; i<vertices.size();i++)
-    {
-        if(vertices[i].city==cityname)
-        {
-            found=true;
-            break;
-        }
-    }
-    //Insert each state into vertex and also create linklist stores information
-    if(found==false)
-    {
-        vertex hello;
-        hello.city=cityname;
-        hello.solved=false;
-        hello.visted=false;
-        Info* landscape = new Info(land,nullptr);
-        hello.next=landscape;
-        Info* tempp = new Info(temp,nullptr);
-        landscape->next=tempp;
-        Info* popp = new Info(pop,nullptr);
-        tempp->next=popp;
-        Info* foo = new Info(food,nullptr);
-        popp->next=foo;
-        vertices.push_back(hello);
-    }
+    vertex hello;
+    hello.city=cityname;
+    hello.solved=false;
+    hello.visted=false;
+    //building connetion
+    Info* landscape = new Info(land,nullptr);
+    hello.next=landscape;
+    Info* tempp = new Info(temp,nullptr);
+    landscape->next=tempp;
+    Info* popp = new Info(pop,nullptr);
+    tempp->next=popp;
+    Info* foo = new Info(food,nullptr);
+    popp->next=foo;
+    //insert vertex into hash table
+    vertices.set(cityname,hello);
 }
 
 
 //Search vertex from vector and return the result
 vertex* Travel_map::searchvertex(string cityname)
 {
-    for(int i=0; i<vertices.size();i++)
+    if(vertices.checkexist(cityname))
     {
-        if(vertices[i].city==cityname)
-        {
-            return &vertices[i];
-        }
+        return &vertices.get(cityname);
     }
-    return nullptr;
+    else
+        
+        return nullptr;
 }
 
 //Find closest path
@@ -141,7 +127,7 @@ vertex* Travel_map::Dijkstra(string start, string end)
             {
                 if(!s->adjacent[y].v->solved)
                 {
-                     dist=s->distance+s->adjacent[y].weight;
+                    dist=s->distance+s->adjacent[y].weight;
                     if(dist<shortest)
                     {
                         solvedVertex = s->adjacent[y].v;
@@ -156,9 +142,10 @@ vertex* Travel_map::Dijkstra(string start, string end)
         solvedVertex->solved=true;
         solved.push_back(solvedVertex);
     }
-    for(int i=0; i<vertices.size();i++)
+    //reset solved to false
+    for(int i=0; i<loopthrough.size();i++)
     {
-        vertices[i].solved = false;
+        vertices.get(loopthrough[i]).solved=false;
     }
     cout<<"Your shortest distance total is "<<dist<<" miles"<<endl;
     return endvertex;
@@ -183,17 +170,18 @@ void Travel_map::printoutshortestdistance(string start, string end)
     
 }
 //Based on input and give a suggestion about which city to go and show user other informations
+//Traversing link list
 void Travel_map::searchlandscape(string landscape)
 {int k=1;
-    for(int i=0; i<vertices.size();i++)
+    for(int i=0; i<loopthrough.size();i++)
     {
-        if(vertices[i].next->information==landscape)
+        if(vertices.get(loopthrough[i]).next->information==landscape)
         {
             cout<<"Match "<<k<<endl;
-            cout<<"The landscape of "<<vertices[i].city<<" is "<<vertices[i].next->information<<"."<<endl;
-            cout<<"The temperature range of "<<vertices[i].city<<" is "<<vertices[i].next->next->information<<" F "<<endl;
-            cout<<"The population of "<<vertices[i].city<<" is "<<vertices[i].next->next->next->information<<endl;
-            cout<<"The food of "<<vertices[i].city<<" is "<<vertices[i].next->next->next->next->information<<endl;
+            cout<<"The landscape of "<<loopthrough[i]<<" is "<<vertices.get(loopthrough[i]).next->information<<"."<<endl;
+            cout<<"The temperature range of "<<loopthrough[i]<<" is "<<vertices.get(loopthrough[i]).next->next->information<<" F "<<endl;
+            cout<<"The population of "<<loopthrough[i]<<" is "<<vertices.get(loopthrough[i]).next->next->next->information<<endl;
+            cout<<"The food of "<<loopthrough[i]<<" is "<<vertices.get(loopthrough[i]).next->next->next->next->information<<endl;
             k++;
             cout<<endl;
         }
@@ -255,7 +243,7 @@ vertex* Travel_map::BFS(string startcity, string endcity)
             }
         }
     }
-
+    
     return nullptr;
 }
 
@@ -275,11 +263,10 @@ void Travel_map::printoutBFS(string start, string end)
         apppp=apppp->parent;
     }
     //After BFS, Re set visted value to false;
-    for(int i=0; i<vertices.size();i++)
+    for(int i=0; i<loopthrough.size();i++)
     {
-        vertices[i].visted=false;
-    }
-}
+        vertices.get(loopthrough[i]).visted=false;
+    }}
 
 //Insert BST
 void Travel_map::inserttree(string attraction)
@@ -341,11 +328,8 @@ void Travel_map::printattractionprivate(Tree* temp)
 //Call function above in main
 void Travel_map::printattraction_public(string cityname)
 {
-    for(int i=0;i<vertices.size();i++)
-    {
-        if((vertices[i].city==cityname))
-        {
-            printattractionprivate(vertices[i].tree);
-        }
-    }
+    printattractionprivate(vertices.get(cityname).tree);
+    
 }
+
+

@@ -1,23 +1,25 @@
 #include "Hashtable.hpp"
 
 template <class T>
-Hashtable<T>::Hashtable(int size_)
+Hashtable<T>::Hashtable(int sizee_)
 {
-    size=size_;
+    size=sizee_;
     table = new node*[size];//*table = new node[size ] wrong
     for(int i=0; i<size; i++)
     {
         table[i]=nullptr;
     }
 }
+
+//Delete the dynamic array
 template <class T>
 
 Hashtable<T>::~Hashtable()
 {
     delete []table;
 }
-template <class T>
 
+template <class T>
 int Hashtable<T>::hash(string key)
 {
     int sum=0;
@@ -25,10 +27,10 @@ int Hashtable<T>::hash(string key)
         sum = sum+key[i];
     sum=sum % size;
     return sum;
-    
 }
+//Return the value which is vertex after input the state name
 template <class T>
-T Hashtable<T>::get(string key)
+T& Hashtable<T>::get(string key)
 {
     int value;
     value = hash(key);
@@ -39,8 +41,8 @@ T Hashtable<T>::get(string key)
     }
     return temp->value;
 }
+//Check whether the state is existed, return true/false
 template <class T>
-
 bool Hashtable<T>::checkexist(string key)
 {
     int value;
@@ -52,6 +54,8 @@ bool Hashtable<T>::checkexist(string key)
     }
     return temp!=nullptr;
 }
+//Insert state name and state vertex into the hash table.
+//Also checking whether there's a collision, which is solved by creating a link list
 template <class T>
 void Hashtable<T>::set(string key, T value_)
 {

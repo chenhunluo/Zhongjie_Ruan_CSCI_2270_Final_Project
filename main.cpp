@@ -44,6 +44,7 @@ int main()
             cout<<"Found your favourite place?"<<endl;
             cout<<"Enter other numbers to get for information"<<endl;
             cout<<"Enter 1 again to search other landscapes"<<endl;
+            cout<<endl;
             cout << "======Travel Partner======" << endl;
             cout << "1. Find your perfection destination" << endl;
             cout<<  "2. Get attraciton information"<<endl;
@@ -61,6 +62,11 @@ int main()
             string input;
             cout<<"State name: "<<endl;
             getline(cin,input);
+            while(test.searchvertex(input)==nullptr)
+            {
+                cout<<"Invalid input. Input again: "<<endl;
+                getline(cin,input);
+            }
             cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
             test.printattraction_public(input);
             cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
@@ -85,8 +91,18 @@ int main()
             cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
             cout<<"Please enter your home address: "<<endl;
             getline(cin,currentlocatoin);
+            while(test.searchvertex(currentlocatoin)==nullptr)
+            {
+                cout<<"Invalid input. Input again: "<<endl;
+                getline(cin,currentlocatoin);
+            }
             cout<<"Please enter your destinaton: "<<endl;
             getline(cin,destination);
+            while(test.searchvertex(destination)==nullptr)
+            {
+                cout<<"Invalid input. Input again: "<<endl;
+                getline(cin,destination);
+            }
             cout<<"---------------------------------------------"<<endl;
             test.Dijkstra(currentlocatoin, destination);
             cout<<"---------------------------------------------"<<endl;
@@ -111,8 +127,18 @@ int main()
             cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
             cout<<"Please enter your home address: "<<endl;
             getline(cin,currentlocatoin);
+            while(test.searchvertex(currentlocatoin)==nullptr)
+            {
+                cout<<"Invalid input. Input again: "<<endl;
+                getline(cin,currentlocatoin);
+            }
             cout<<"Please enter your destinaton: "<<endl;
             getline(cin,destination);
+            while(test.searchvertex(destination)==nullptr)
+            {
+                cout<<"Invalid input. Input again: "<<endl;
+                getline(cin,destination);
+            }
             cout<<"-------------------------------------------------------------"<<endl;
             test.printoutshortestdistance(currentlocatoin, destination);
             cout<<"-------------------------------------------------------------"<<endl;
@@ -136,8 +162,18 @@ int main()
             cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
             cout<<"Please enter your home address: "<<endl;
             getline(cin,currentlocatoin);
+            while(test.searchvertex(currentlocatoin)==nullptr)
+            {
+                cout<<"Invalid input. Input again: "<<endl;
+                getline(cin,currentlocatoin);
+            }
             cout<<"Please enter your destinaton: "<<endl;
             getline(cin,destination);
+            while(test.searchvertex(destination)==nullptr)
+            {
+                cout<<"Invalid input. Input again: "<<endl;
+                getline(cin,destination);
+            }
             cout<<"-------------------------------------------------------------"<<endl;
             test.printoutBFS(currentlocatoin, destination);
             cout<<"-------------------------------------------------------------"<<endl;
@@ -152,8 +188,5 @@ int main()
             getline(cin,choice);
         }
     }
-    
-    
-    
-    
+
 }

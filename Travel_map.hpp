@@ -1,6 +1,6 @@
 #include <iostream>
 #include<vector>
-#include"Hashtable.hpp"
+#include"Hashtable.cpp"
 
 using namespace std;
 
@@ -43,7 +43,7 @@ struct Info
     
 };
 
-//Tree struct used for BST, Tree contains attraction information
+//Tree struct used for BST, Tree contains 4 attractions information
 struct Tree
 {
     string attraction;
@@ -59,13 +59,15 @@ class Travel_map
 private:
     //Used for traverse BST
     void printattractionprivate(Tree* root);
-    //vertices vector store vertex(s)
-    vector <vertex> vertices;
+    //vertices stored in hashtable
+    Hashtable <vertex> vertices;
     //Root of BST
     Tree* root;
     //Used for connect each tree with each vertex
     int counter;
-
+    //vector store all state names
+    vector <string> loopthrough;
+    
 public:
     Travel_map(string filename);
     ~Travel_map();
