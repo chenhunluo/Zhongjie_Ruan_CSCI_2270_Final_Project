@@ -1,4 +1,8 @@
+#include <string>
+#include <climits>
 #include "Hashtable.hpp"
+
+using namespace std;
 
 template <class T>
 Hashtable<T>::Hashtable(int sizee_)

@@ -1,9 +1,10 @@
 #include "Travel_map.hpp"
 #include <iostream>
-#include<vector>
-#include<fstream>
-#include<sstream>
-#include<deque>
+#include <vector>
+#include <fstream>
+#include <sstream>
+#include <deque>
+#include <climits>
 using namespace std;
 //Also declear the size of the hash table
 Travel_map::Travel_map(string filename) :vertices(1000)

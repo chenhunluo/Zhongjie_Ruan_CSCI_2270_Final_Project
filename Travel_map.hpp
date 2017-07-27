@@ -1,6 +1,9 @@
+#ifndef TRAVELMAP_H
+#define TRAVELMAP_H
+
 #include <iostream>
-#include<vector>
-#include"Hashtable.cpp"
+#include <vector>
+#include "Hashtable.cpp"
 
 using namespace std;
 
@@ -94,5 +97,4 @@ public:
     void printattraction_public(string cityname);
 };
 
-
-
+#endif
