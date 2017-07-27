@@ -30,6 +30,13 @@ My program has five basic functionalities.
 •    Print out the path from start location to the end location. The result is got from the Printshortestdistance function.  Printshortestdistance called Dijkstra first to get the end node, then call the reverse function to reverse the link list connect by parent and then output the path of correct order.
 •    Print out the path that contains the least amount of state by using BFS. The path from Dijkstra can give you the path that has the shortest distance, but you may have to pass some unnecessary states. BFS gives you a straightforward path. (Some paths got from Dijkstra and BFS may same). 
 
-How to Run
+***How to Run***
 
 ![how to run program](/howto.png)
+
+***System Requirements***
+
+The program is tested on both mac system and windows system. Follow the picture instruction and run it on terminal should work on both system.
+
+
+
