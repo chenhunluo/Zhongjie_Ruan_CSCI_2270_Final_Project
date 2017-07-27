@@ -1,20 +1,20 @@
-0,Wyoming,plain,61-88,585501,jerkey,Yellowstone National Park,Grand Teton National park,Old Faithful,Rocky Mountains
-1,Colorado,canyon,64-90,5.41 million,bison,Rocky Mountains,Mesa Verde National Park,Rocky Mountain National Park,Black Canyon of the Gunnison National Park
-2,South Dakota,forest,63-83,865.454,bierocks,Mount Rushmore National Memorial,Badlands National Park,Black Hills,Custer State Park
-3,Nebraska,plain,67-86,1.967 million,ribs,Doorly Zoo,Lauritzen Gardens,Chimney Rock National Historic,Great Platte River
-4,Oklahoma,diverse,67-86,3.294,fried onion burger,Myriad Botanical Gardens,Oklahoma City National Memorial,Oklahoma City Zoo,National Cowboy
-5,Texas,desert,78-96,27.86 million,barbecue,Big Bend National Park,Alamo Mission in San Antonio,Padre Island,Palo Duro Canyon
-6,Minnesota,lake,66-82,5.25 million,jucy lucky,Mall of America,Nickelodeon Universe,Como Park zoo,Valleyfair
-7,Iowa,cornfield,63-83,3.135 million,iowa chops,Adventureland,Pikes Peak State Park,Amana Colonies,Maquoketa Caves State Park
-8,Missouri,plain,73-91,6.093,slinger,Gateway Arch,Silver Dollar City,Missouri Botanical Garden,Table Rock Lake
-9,Kentucky,river,74-93,4.43 million,country ham,Mammoth Cave National Park,Ohio River,Land Between The Lakes,Creation Museum
-10,Tennessee,river,76-94,6.65 million,fried pickle,Great Smoky Mountains,Blue Ridge Mountains,Dollywood,American Museum of Science
-11,California,beach,67-85,32.95 million,dungeness crab,Golden Gate Bridge,Disneyland,Yosemite National Park,Alcatraz island
-12,Ohio,river,71-80,11.6 million,corned beef,Hocking Hills State Park,Lake Erie,Cedar Point,Kings Island
-13,Pennsylvania,forest,75-87,12.78 million,pieroge,Pocono Mountains,Lake Erie,Liberty Bell,PNC Park
-14,New York,urban,73-87,8.55 million,bagel,Statue of Liberty,Central Park,Empire State Building,Rockefeller Center
-15,Michigan,lake,62-87,9.928 million,vernor,Lake Michigan,Lake Huron,The Henry Ford,Sleeping Bear Dunes National Lakeshore
-16,Indiana,farm,69-84,6.63 million,sauerkraut,Indiana Dunes National Lakeshore,Ohio River,Holiday World,Turkey Run State Park
+Wyoming,plain,61-88,585501,jerkey,Yellowstone National Park,Grand Teton National park,Old Faithful,Rocky Mountains
+Colorado,canyon,64-90,5.41 million,bison,Rocky Mountains,Mesa Verde National Park,Rocky Mountain National Park,Black Canyon of the Gunnison National Park
+South Dakota,forest,63-83,865.454,bierocks,Mount Rushmore National Memorial,Badlands National Park,Black Hills,Custer State Park
+Nebraska,plain,67-86,1.967 million,ribs,Doorly Zoo,Lauritzen Gardens,Chimney Rock National Historic,Great Platte River
+Oklahoma,diverse,67-86,3.294,fried onion burger,Myriad Botanical Gardens,Oklahoma City National Memorial,Oklahoma City Zoo,National Cowboy
+Texas,desert,78-96,27.86 million,barbecue,Big Bend National Park,Alamo Mission in San Antonio,Padre Island,Palo Duro Canyon
+Minnesota,lake,66-82,5.25 million,jucy lucky,Mall of America,Nickelodeon Universe,Como Park zoo,Valleyfair
+Iowa,cornfield,63-83,3.135 million,iowa chops,Adventureland,Pikes Peak State Park,Amana Colonies,Maquoketa Caves State Park
+Missouri,plain,73-91,6.093,slinger,Gateway Arch,Silver Dollar City,Missouri Botanical Garden,Table Rock Lake
+Kentucky,river,74-93,4.43 million,country ham,Mammoth Cave National Park,Ohio River,Land Between The Lakes,Creation Museum
+Tennessee,river,76-94,6.65 million,fried pickle,Great Smoky Mountains,Blue Ridge Mountains,Dollywood,American Museum of Science
+California,beach,67-85,32.95 million,dungeness crab,Golden Gate Bridge,Disneyland,Yosemite National Park,Alcatraz island
+Ohio,river,71-80,11.6 million,corned beef,Hocking Hills State Park,Lake Erie,Cedar Point,Kings Island
+Pennsylvania,forest,75-87,12.78 million,pieroge,Pocono Mountains,Lake Erie,Liberty Bell,PNC Park
+New York,urban,73-87,8.55 million,bagel,Statue of Liberty,Central Park,Empire State Building,Rockefeller Center
+Michigan,lake,62-87,9.928 million,vernor,Lake Michigan,Lake Huron,The Henry Ford,Sleeping Bear Dunes National Lakeshore
+Indiana,farm,69-84,6.63 million,sauerkraut,Indiana Dunes National Lakeshore,Ohio River,Holiday World,Turkey Run State Park
 Wyoming,Colorado,50,South Dakota,30
 Colorado,Wyoming,50,Nebraska,115,Oklahoma,85
 South Dakota,Wyoming,30,Minnesota,120,Nebraska,75

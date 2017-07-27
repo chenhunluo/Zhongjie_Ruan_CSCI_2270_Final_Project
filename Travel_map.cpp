@@ -27,14 +27,13 @@ void Travel_map::loadfile(string filename)
     ifstream Datafile(filename);
     if(!Datafile)
         cout<<"Open file failed"<<endl;
-    string nothing,city,land,temp,pop,food,wholeline,attraction;
+    string city,land,temp,pop,food,wholeline,attraction;
     string current;
     string first;
     for(int i=0;i<=16;i++)
     {
         getline(Datafile,wholeline);
         istringstream ss(wholeline);
-        getline(ss,nothing,','); //Just the index for each state, not used
         getline(ss,city,',');//State name
         getline(ss,land,',');//Landscape type
         getline(ss,temp,',');//Temperature range
@@ -50,6 +49,7 @@ void Travel_map::loadfile(string filename)
         vertices.get(city).tree=root;
         //reset root for creating a new tree
         root=nullptr;
+        //add adj vertex
         loopthrough.push_back(city);
     }
     //Insert edges and weight
