@@ -32,4 +32,4 @@ My program has five basic functionalities.
 
 How to Run
 
-
+![how to run program](/howto.png)
