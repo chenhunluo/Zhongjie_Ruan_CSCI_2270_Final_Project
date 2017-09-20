@@ -1,5 +1,8 @@
 # Zhongjie_Ruan_CSCI_2270_Final_Project
 
+modification for step 19 
+Name: Zhongjie Ruan Partner
+
 I am going to design an application that helps user to find the best travel destination based on their landscape preference, and help the user to calculate the shortest path based on distance and based on least states they will pass to arrive the destination country. 
 
 Three data structures that I will use are the graph, queue, and link list. I will use the graph to map the whole application; different states are independent vertex inside the map; adjacent states are connected with vertex by a weighted edge. The weight in my program represents the distance between two countries. Each vertex is associated with a singly link list, which includes the landscape information, temperature information, population information, and local food information. I will implement a queue to use it for breath first search.
